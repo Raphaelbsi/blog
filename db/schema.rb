@@ -10,8 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_26_122259) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comentarios", force: :cascade do |t|
+    t.string "nome"
+    t.text "comentario"
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comentarios_on_post_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "titulo"
+    t.text "texto"
+    t.bigint "usuario_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["usuario_id"], name: "index_posts_on_usuario_id"
+  end
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string "nome"
+    t.string "email"
+    t.string "senha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "comentarios", "posts"
+  add_foreign_key "posts", "usuarios"
 end

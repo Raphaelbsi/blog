@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post '/login', to: 'sessions#create' # Rota de login
+  resources :usuarios, except: %i[create update destroy] # Rotas de CRUD de usuário
+  resources :posts # Rotas de CRUD de post
+  resources :comentarios # Rotas de CRUD de comentário
 end
