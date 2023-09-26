@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Usuario, type: :model do
   it 'é válido com nome, email e senha' do
-    usuario = Usuario.new(
-      nome: 'Nome do Usuário',
-      email: 'usuario@example.com',
-      password: 'password'
-    )
+    usuario = FactoryBot.build(:usuario)
     expect(usuario).to be_valid
   end
 
