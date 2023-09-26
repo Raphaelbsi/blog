@@ -13,7 +13,10 @@ gem 'pg', '~> 1.5', '>= 1.5.4'
 gem "puma", "~> 5.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
+# gem 'jbuilder', '~> 2.11', '>= 2.11.5'
+
+# ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner.
+gem 'active_model_serializers', '~> 0.10.13'
 
 # A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 gem 'jwt', '~> 2.7', '>= 2.7.1'
