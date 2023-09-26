@@ -5,7 +5,7 @@ RSpec.describe Usuario, type: :model do
     usuario = Usuario.new(
       nome: 'Nome do Usuário',
       email: 'usuario@example.com',
-      senha: 'password'
+      password: 'password'
     )
     expect(usuario).to be_valid
   end
@@ -13,7 +13,7 @@ RSpec.describe Usuario, type: :model do
   it 'não é válido sem nome' do
     usuario = Usuario.new(
       email: 'usuario@example.com',
-      senha: 'password'
+      password: 'password'
     )
     expect(usuario).not_to be_valid
   end
